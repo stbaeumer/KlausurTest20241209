@@ -35,26 +35,22 @@ app.set('view engine', 'ejs')
 
 app.use(bodyParser.urlencoded({extended: true}))
 
+
+// Hier kommt das Kunden(-berater) objekt hin:
+
+
+
+
+
+
+
+
 app.get('/', (req, res) => {
-
-	// res ist die Antwort des Servers an den Browser.
-	// send() ist die Anweisung etwas an den Browser zu senden
-	// 'Hello ...' ist der Wert, der an die Anweisung send() übergeben wird
-	//res.send('Hello remote world!\n');
-
-	// Das res-Objekt kann noch mehr als nur eine Zeichenkette an den
-	// Browser zu senden. Das res-Objekt kann mit der Funktion render()
-	// eine HTML-Datei an den Browser senden.
 	res.render('index.ejs',{});
 });
 
-// Wenn im Browser die Adresse .../agb aufgerufen wird, wird der Server aufgefordert,
-// die angefragte Seite an den Browser zurückzugeben.
-// Der Server arbeitet dazu die Funktion app.get('agb)... ab.
-app.get('/agb', (req, res) => {
 
-	// Der Server gibt die gerenderte EJS-Seite an den 
-	// Browser zurück.
+app.get('/agb', (req, res) => {
 	res.render('agb.ejs',{});
 });
 
@@ -66,9 +62,6 @@ app.get('/kontenuebersicht', (req, res) => {
 	res.render('kontenuebersicht.ejs',{});
 });
 
-app.get('/profil', (req, res) => {
-	res.render('profil.ejs',{});
-});
 
 app.get('/postfach', (req, res) => {
 	res.render('postfach.ejs',{});
@@ -143,8 +136,3 @@ app.listen(PORT, HOST);
 // Ausdruck übergeben. Ein Verb mit anschließenden runden Klammern steht
 // immer für eine Anweisung etwas zu tun. 
 console.log(`Running on http://${HOST}:${PORT}`);
-
-//require('./uebungen/01-grundlagen.js');
-//require('./uebungen/03-objekte.js');
-//require('./klausuren/klausur20240930.js');
-//require('./uebungen/04-funktionen.js');
